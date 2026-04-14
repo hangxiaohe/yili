@@ -7,7 +7,7 @@
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Chart.js 轻量图表库，用于展示关键指标对比 -->
+    <!-- Chart.js 轻量图表库 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {
@@ -17,11 +17,11 @@
         }
 
         body {
-            background: #f0f2f8;
+            background: #eef2f5;
             font-family: 'Inter', sans-serif;
-            color: #1a2634;
-            line-height: 1.45;
-            padding: 40px 24px;
+            color: #1e2a3a;
+            line-height: 1.5;
+            padding: 32px 20px;
         }
 
         .resume-container {
@@ -31,10 +31,9 @@
             border-radius: 32px;
             box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            transition: all 0.2s;
         }
 
-        /* 两栏布局 */
+        /* 两栏布局 - 加大间距 */
         .resume-grid {
             display: grid;
             grid-template-columns: 34% 66%;
@@ -42,22 +41,20 @@
 
         /* ========= 左侧栏 ========= */
         .sidebar {
-            background: #111b26;
+            background: #0f1a24;
             color: #eef2f5;
             padding: 2rem 1.8rem;
-            height: 100%;
         }
 
         .profile-header {
-            text-align: left;
             margin-bottom: 2rem;
             border-bottom: 1px solid rgba(255,255,255,0.15);
             padding-bottom: 1.5rem;
         }
 
         .avatar-placeholder {
-            width: 100px;
-            height: 100px;
+            width: 96px;
+            height: 96px;
             background: #2c3e4e;
             border-radius: 50%;
             display: flex;
@@ -65,22 +62,21 @@
             justify-content: center;
             margin-bottom: 1.2rem;
             border: 3px solid #4f9da6;
-            box-shadow: 0 8px 14px rgba(0,0,0,0.2);
         }
         .avatar-placeholder i {
-            font-size: 3.2rem;
+            font-size: 3rem;
             color: #bdd4df;
         }
         .sidebar h1 {
             font-size: 1.9rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             color: white;
         }
-        .sidebar .title-tag {
-            font-size: 1rem;
-            background: rgba(79,157,166,0.25);
+        .title-tag {
+            font-size: 0.9rem;
+            background: rgba(79,157,166,0.3);
             display: inline-block;
             padding: 0.2rem 0.8rem;
             border-radius: 40px;
@@ -97,7 +93,7 @@
             font-size: 0.85rem;
             margin-bottom: 14px;
             color: #cfdfe9;
-            word-break: break-all;
+            word-break: break-word;
         }
         .contact-item i {
             width: 24px;
@@ -113,7 +109,7 @@
             margin: 2rem 0 1rem 0;
             border-left: 3px solid #4f9da6;
             padding-left: 12px;
-            color: #cbdbe0;
+            color: #d6e3ec;
         }
 
         .education-item {
@@ -122,7 +118,7 @@
         .edu-degree {
             font-weight: 700;
             font-size: 1rem;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .edu-meta {
             font-size: 0.8rem;
@@ -132,15 +128,16 @@
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
             margin-top: 0.8rem;
         }
         .skill-tag {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.1);
             border-radius: 40px;
-            padding: 5px 12px;
+            padding: 5px 14px;
             font-size: 0.75rem;
             font-weight: 500;
+            letter-spacing: 0.3px;
         }
         .lang-item {
             display: flex;
@@ -156,36 +153,35 @@
         }
         .summary-card {
             background: #f8fafd;
-            padding: 1.2rem 1.5rem;
-            border-radius: 24px;
+            padding: 1.3rem 1.8rem;
+            border-radius: 28px;
             margin-bottom: 2rem;
             border-left: 5px solid #2c7a7b;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
         .summary-text {
             font-size: 0.95rem;
             line-height: 1.5;
-            color: #2d3e50;
+            color: #1e3a4d;
         }
 
-        /* 指标看板 */
+        /* KPI 指标卡片 */
         .kpi-dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.2rem;
         }
         .kpi-card {
             background: #ffffff;
-            border-radius: 20px;
-            padding: 1rem 0.8rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            border: 1px solid #e9edf2;
+            border-radius: 24px;
+            padding: 1rem 0.6rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
             text-align: center;
             transition: 0.2s;
         }
         .kpi-number {
-            font-size: 1.9rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #1f6392;
             line-height: 1.2;
@@ -195,22 +191,22 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
-            color: #5b6f82;
-            margin-top: 6px;
+            color: #4b6a84;
+            margin-top: 8px;
         }
 
-        /* 工作经历条目 */
+        /* 工作经历 */
         .exp-item {
             margin-bottom: 2rem;
-            border-bottom: 1px solid #edf2f7;
-            padding-bottom: 1.6rem;
+            border-bottom: 1px solid #eef2f8;
+            padding-bottom: 1.8rem;
         }
         .exp-header {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
         }
         .exp-company {
             font-size: 1.25rem;
@@ -218,10 +214,10 @@
             color: #0a2b3e;
         }
         .exp-period {
-            font-size: 0.8rem;
-            color: #6c86a3;
-            background: #f0f4f9;
-            padding: 0.2rem 0.7rem;
+            font-size: 0.75rem;
+            color: #5e7c9c;
+            background: #f0f4fa;
+            padding: 0.2rem 0.8rem;
             border-radius: 30px;
         }
         .exp-title {
@@ -236,22 +232,22 @@
             margin-bottom: 1rem;
             line-height: 1.5;
         }
-        .achievement-grid {
+        .inline-stats {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 12px;
+            margin: 12px 0 12px;
         }
         .metric-badge {
             background: #eef2fc;
             border-radius: 40px;
-            padding: 5px 12px;
+            padding: 6px 14px;
             font-size: 0.75rem;
             font-weight: 600;
             color: #1c6e8f;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
         .progress-container {
             background: #e2e8f0;
@@ -269,57 +265,86 @@
         .progress-fill.highlight {
             background: #e67e22;
         }
-        .inline-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin: 12px 0 6px;
-        }
-        .stat-num {
-            font-weight: 800;
-            font-size: 1rem;
-            color: #1f6392;
-        }
-
-        /* 图表容器 */
-        .chart-mini {
-            margin: 1rem 0 0.5rem;
-            max-width: 280px;
-        }
-
-        hr {
-            margin: 10px 0;
-        }
         .flex-between {
             display: flex;
             justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 4px;
         }
-        @media (max-width: 800px) {
+        .chart-mini {
+            max-width: 300px;
+            margin: 0.8rem 0;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 三技能卡片 */
+        .skill-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.8rem 0 1rem;
+        }
+        .skill-card {
+            background: #f8fafd;
+            border-radius: 24px;
+            padding: 1rem 1.2rem;
+            flex: 1;
+            min-width: 160px;
+            border: 1px solid #e9edf2;
+        }
+
+        .footer-note {
+            font-size: 0.7rem;
+            color: #6f8eac;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        /* 响应式 */
+        @media (max-width: 780px) {
             .resume-grid {
                 grid-template-columns: 1fr;
             }
             .sidebar {
-                padding: 1.5rem;
+                padding: 1.8rem;
             }
             .main-content {
-                padding: 1.5rem;
+                padding: 1.6rem;
+            }
+            .kpi-dashboard {
+                gap: 0.8rem;
+            }
+            .exp-header {
+                flex-direction: column;
+                gap: 6px;
             }
         }
-        .footer-note {
-            font-size: 0.7rem;
-            text-align: center;
-            margin-top: 1rem;
-            color: #8196aa;
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+            .main-content {
+                padding: 1.2rem;
+            }
+            .kpi-number {
+                font-size: 1.6rem;
+            }
+        }
+        hr {
+            margin: 0;
         }
         i.fa, i.far, i.fas {
-            margin-right: 4px;
+            margin-right: 6px;
         }
     </style>
 </head>
 <body>
 <div class="resume-container">
     <div class="resume-grid">
-        <!-- 左侧 个人信息/技能/语言/教育 -->
+        <!-- 左侧栏 -->
         <div class="sidebar">
             <div class="profile-header">
                 <div class="avatar-placeholder">
@@ -330,7 +355,7 @@
                 <div class="contact-info">
                     <div class="contact-item"><i class="fas fa-phone-alt"></i> 18501297089</div>
                     <div class="contact-item"><i class="fas fa-envelope"></i> yilisemail@163.com</div>
-                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> 北京 · 泰国留学背景</div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> 北京 · 泰国留学</div>
                 </div>
             </div>
 
@@ -353,7 +378,7 @@
             </div>
 
             <div class="section-title-side">语言能力</div>
-            <div class="lang-item"><span>英语 (IELTS 水准)</span><span>听说读写无障碍 · 口语流利</span></div>
+            <div class="lang-item"><span>英语</span><span>听说读写无障碍 · 口语流利</span></div>
             <div class="lang-item"><span>普通话</span><span>母语 · 标准</span></div>
 
             <div class="section-title-side">专业工具箱</div>
@@ -362,21 +387,21 @@
                 <span class="skill-tag">小红书图文</span>
                 <span class="skill-tag">舆情管理</span>
                 <span class="skill-tag">MCN孵化逻辑</span>
-                <span class="skill-tag">数据分析 (飞瓜/蝉妈妈)</span>
+                <span class="skill-tag">数据分析(飞瓜/蝉妈妈)</span>
                 <span class="skill-tag">AIGC内容提效</span>
             </div>
         </div>
 
-        <!-- 右侧 经历+成果+图表 -->
+        <!-- 右侧内容 -->
         <div class="main-content">
             <!-- 个人总结 -->
             <div class="summary-card">
                 <div class="summary-text">
-                    <strong>🌟 资深内容运营专家</strong> — 5年全链路经验，从单账号孵化到百人矩阵标准化落地，擅长以数据驱动增长、流程提效，同步建立风控与治理机制。精通AI工具，保持技术敏锐性，多次超额达成业务目标。
+                    <strong>🌟 资深内容运营专家</strong> — 5年全链路经验，从单账号孵化到百人矩阵标准化落地，擅长以数据驱动增长、流程提效，同步建立风控与治理机制。精通AI工具，多次超额达成业务目标。
                 </div>
             </div>
 
-            <!-- 关键成果仪表板  (图表风格) -->
+            <!-- KPI 仪表板 -->
             <div class="kpi-dashboard">
                 <div class="kpi-card"><div class="kpi-number">40W+</div><div class="kpi-label">总粉丝增长</div><i class="fas fa-chart-line" style="color:#2c7a7b;"></i></div>
                 <div class="kpi-card"><div class="kpi-number">5700W+</div><div class="kpi-label">品牌总曝光量</div><i class="fas fa-eye"></i></div>
@@ -384,7 +409,7 @@
                 <div class="kpi-card"><div class="kpi-number">5000+</div><div class="kpi-label">矩阵视频产出</div><i class="fas fa-video"></i></div>
             </div>
 
-            <!-- 工作经历 1: 中科曙光 -->
+            <!-- 工作经历 中科曙光 -->
             <div class="exp-item">
                 <div class="exp-header">
                     <span class="exp-company">中科曙光 · 市场部</span>
@@ -400,23 +425,16 @@
                     <span class="metric-badge"><i class="fas fa-file-alt"></i> 留资1100+条</span>
                     <span class="metric-badge"><i class="fas fa-users"></i> 矩阵曝光3000W+</span>
                 </div>
-                <div class="achievement-grid">
-                    <div style="flex:1; min-width:140px">
-                        <div class="flex-between"><span>📈 矩阵号KPI贡献</span><span>团队42%</span></div>
-                        <div class="progress-container"><div class="progress-fill" style="width:42%"></div></div>
-                    </div>
-                    <div style="flex:1; min-width:140px">
-                        <div class="flex-between"><span>🚀 个人KPI超额</span><span>50%</span></div>
-                        <div class="progress-container"><div class="progress-fill highlight" style="width:150%; background:#e67e22; max-width:100%;"></div><span style="font-size:0.7rem;">目标完成150%</span></div>
-                    </div>
-                </div>
-                <div class="exp-desc" style="margin-top:8px">
-                    ✔️ 统筹光合组织账号，跨区域标准化流程曝光1500W+，沉淀SOP提升内容生产效率。<br>
-                    ✔️ 行业案例精品视频 & 重大项目支持，推动内容生产与协同提效。
+                <div class="flex-between"><span>📈 矩阵号贡献团队KPI</span><span>42%</span></div>
+                <div class="progress-container"><div class="progress-fill" style="width:42%"></div></div>
+                <div class="flex-between" style="margin-top: 12px;"><span>🚀 个人KPI超额完成</span><span>150%</span></div>
+                <div class="progress-container"><div class="progress-fill highlight" style="width:100%"></div></div>
+                <div class="exp-desc" style="margin-top: 12px">
+                    ✔️ 光合组织账号曝光1500W+，建立跨区域标准化流程；沉淀矩阵运营SOP，提升内容生产效率。
                 </div>
             </div>
 
-            <!-- 工作经历 2: 原生动力（广告公司）爆款与治理 -->
+            <!-- 原生动力 -->
             <div class="exp-item">
                 <div class="exp-header">
                     <span class="exp-company">原生动力 · 创意部</span>
@@ -433,163 +451,144 @@
                     <span class="metric-badge"><i class="fab fa-markdown"></i> 小红书单篇销售额破3W</span>
                 </div>
                 <div class="chart-mini">
-                    <canvas id="engagementChart" style="height:60px; width:100%; max-width:260px;"></canvas>
+                    <canvas id="engagementChart" style="height:70px; width:100%"></canvas>
                 </div>
                 <div class="exp-desc">
-                    🛡️ 内容爆发期建立评论区管理、舆情应对机制，确保账号健康增长；跨平台内容管理经验（抖音/小红书），沉淀规范更新节奏。
+                    🛡️ 内容爆发期建立评论区管理、舆情应对机制，确保账号健康增长；沉淀跨平台内容管理经验。
                 </div>
             </div>
 
-            <!-- 工作经历 3: 迁传网络科技公司 (媒介+ MCN) -->
+            <!-- 迁传网络 -->
             <div class="exp-item">
                 <div class="exp-header">
-                    <span class="exp-company">迁传网络科技公司 · 媒介部</span>
+                    <span class="exp-company">迁传网络科技 · 媒介部</span>
                     <span class="exp-period">2022.03 - 2024.03 | 北京</span>
                 </div>
                 <div class="exp-title">短视频运营 / MCN内容孵化</div>
                 <div class="exp-desc">
-                    负责抖音话题推广及数据监测，参与《保安日记》《兵王之绝境击杀》项目，创造话题级播放量；同时从0到1孵化剧情类账号。
+                    负责抖音话题推广及数据监测，参与《保安日记》《兵王之绝境击杀》项目，创造话题级播放量；从0到1孵化剧情类账号。
                 </div>
                 <div class="inline-stats">
                     <span class="metric-badge"><i class="fas fa-chart-line"></i> 《保安日记》播放4亿</span>
                     <span class="metric-badge"><i class="fas fa-chart-line"></i> 《兵王》播放4000W</span>
                     <span class="metric-badge"><i class="fas fa-video"></i> 剧情号爆款10W+播放</span>
                 </div>
-                <div class="progress-container" style="margin: 10px 0;"><div class="progress-fill" style="width:98%"></div><span style="font-size:0.7rem;">话题推广超额完成KPI达成率98%</span></div>
-                <div class="exp-desc">
-                    ✍️ 剧情类《香草天空》脚本撰写&基础运营，从0到1孵化流程积累；达人审核、投放优化与数据监控，沉淀平台活动管理经验。
+                <div class="flex-between"><span>📢 话题推广完成率</span><span>98%</span></div>
+                <div class="progress-container"><div class="progress-fill" style="width:98%"></div></div>
+                <div class="exp-desc" style="margin-top: 8px">
+                    ✍️ 剧情类《香草天空》脚本撰写&基础运营，沉淀从0到1孵化流程；达人审核与投放优化。
                 </div>
             </div>
 
-            <!-- 专业化图表展示：项目成果对比 (用canvas展示矩阵曝光对比) -->
-            <div style="margin-top: 1rem; background: #F9FBFD; border-radius: 24px; padding: 1rem 1rem 0.5rem 1rem;">
-                <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;"><i class="fas fa-chart-pie"></i> 核心项目曝光 & 增长对比</h4>
-                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
-                    <div style="flex:1; min-width:180px">
+            <!-- 图表对比区域 使用canvas并确保容器不溢出 -->
+            <div style="margin-top: 1rem; background: #F9FBFD; border-radius: 28px; padding: 1.2rem 1rem;">
+                <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;"><i class="fas fa-chart-pie"></i> 核心项目曝光 & 粉丝增长对比</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between;">
+                    <div style="flex:1; min-width: 200px;">
                         <canvas id="exposureChart" width="400" height="180" style="max-width:100%; height:auto;"></canvas>
-                        <div style="font-size: 0.7rem; text-align:center;">矩阵曝光（万）对比</div>
+                        <div style="font-size: 0.7rem; text-align:center; margin-top: 6px;">曝光量（万）对比</div>
                     </div>
-                    <div style="flex:1; min-width:180px">
+                    <div style="flex:1; min-width: 200px;">
                         <canvas id="fansChart" width="400" height="180" style="max-width:100%; height:auto;"></canvas>
-                        <div style="font-size: 0.7rem; text-align:center;">关键账号粉丝增长（万）</div>
+                        <div style="font-size: 0.7rem; text-align:center; margin-top: 6px;">粉丝增长（万）</div>
                     </div>
                 </div>
-                <div class="footer-note" style="margin-top: 16px;">*基于实际运营成果：中科曙光矩阵曝光3000W+光合1500W+宁畅1200W，原生动力访谈号28W粉丝，老板IP 2W等</div>
+                <div class="footer-note">*基于实际运营数据：宁畅曝光1200W、矩阵3000W、光合1500W；访谈号28W粉，老板IP 2W等。</div>
             </div>
 
-            <!-- 技术能力 + 治理经验 highlight -->
-            <div style="margin: 1.8rem 0 0.5rem; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;">
-                <div style="background: #F0F6FA; border-radius: 20px; padding: 1rem; flex:1;">
-                    <i class="fas fa-brain" style="color:#1f6392;"></i> <strong>数据驱动 & AI提效</strong>
-                    <div class="progress-container mt-1"><div class="progress-fill" style="width:88%"></div></div>
-                    <div style="font-size:0.8rem">运用数据指标优化策略，AI工具辅助内容生产提升效率35%</div>
+            <!-- 技术能力卡片 -->
+            <div class="skill-cards">
+                <div class="skill-card">
+                    <i class="fas fa-brain" style="color:#1f6392; font-size:1.2rem;"></i> <strong>数据驱动 & AI提效</strong>
+                    <div class="progress-container mt-1" style="margin-top: 10px;"><div class="progress-fill" style="width:88%"></div></div>
+                    <div style="font-size:0.8rem; margin-top: 6px;">运用数据指标优化策略，AI辅助内容生产提效35%</div>
                 </div>
-                <div style="background: #F0F6FA; border-radius: 20px; padding: 1rem; flex:1;">
+                <div class="skill-card">
                     <i class="fas fa-shield-alt"></i> <strong>风控治理与标准化</strong>
-                    <div class="progress-container mt-1"><div class="progress-fill" style="width:94%"></div></div>
-                    <div style="font-size:0.8rem">建立内容规范、舆情应对及矩阵SOP，保障内容安全与增长健康度</div>
+                    <div class="progress-container mt-1" style="margin-top: 10px;"><div class="progress-fill" style="width:94%"></div></div>
+                    <div style="font-size:0.8rem; margin-top: 6px;">建立内容规范、舆情应对及矩阵SOP</div>
                 </div>
-                <div style="background: #F0F6FA; border-radius: 20px; padding: 1rem; flex:1;">
+                <div class="skill-card">
                     <i class="fas fa-chart-line"></i> <strong>矩阵管理能力</strong>
-                    <div class="progress-container mt-1"><div class="progress-fill" style="width:100%"></div></div>
-                    <div style="font-size:0.8rem">百人级矩阵分层管理+42%团队KPI达成，沉淀复用SOP</div>
+                    <div class="progress-container mt-1" style="margin-top: 10px;"><div class="progress-fill" style="width:100%"></div></div>
+                    <div style="font-size:0.8rem; margin-top: 6px;">百人级矩阵+42%团队KPI达成，沉淀复用SOP</div>
                 </div>
             </div>
 
-            <!-- 额外补充亮点 & 荣誉 -->
-            <div class="summary-card" style="margin-top: 1rem; background:#EFF7F5;">
-                <div class="flex-between"><span><i class="fas fa-medal"></i> <strong>行业荣誉与成果亮点</strong></span></div>
-                <ul style="margin-top: 8px; list-style: none; display: flex; flex-wrap: wrap; gap: 12px;">
-                    <li style="background: white; border-radius: 40px; padding: 4px 12px;">🏆 宁畅企业号24年业内用户增量第一</li>
-                    <li style="background: white; border-radius: 40px; padding: 4px 12px;">📈 单条访谈视频点赞280w+，爆款治理经验沉淀</li>
-                    <li style="background: white; border-radius: 40px; padding: 4px 12px;">🤖 将AIGC融入日常内容生产提效30%+</li>
-                    <li style="background: white; border-radius: 40px; padding: 4px 12px;">📋 沉淀矩阵号运营SOP、舆情管理手册等资产</li>
-                </ul>
-            </div>
-            <div class="footer-note" style="margin-top: 0.8rem; text-align: left;">⭐ 精通抖音/小红书生态、平台内容分发逻辑与行业管理机制，具备跨团队协同落地能力。</div>
+            <div class="footer-note" style="margin-top: 0.5rem;">⭐ 精通抖音/小红书生态、平台内容分发逻辑与行业管理机制，具备跨团队协同落地能力。</div>
         </div>
     </div>
 </div>
 
 <script>
-    // 原生动力互动数据图表: 点赞量 vs 粉丝增长示意 (mini bar)
-    const ctxEngage = document.getElementById('engagementChart')?.getContext('2d');
-    if(ctxEngage){
-        new Chart(ctxEngage, {
-            type: 'bar',
-            data: {
-                labels: ['辉子访老', '老板个人IP', '小红书笔记'],
-                datasets: [{
-                    label: '关键数据 (万/万元)',
-                    data: [28, 2, 3],
-                    backgroundColor: ['#2c7a7b', '#3b8c9e', '#e67e22'],
-                    borderRadius: 8,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: { legend: { position: 'top', labels: { font: { size: 10 } } } },
-                scales: { y: { beginAtZero: true, title: { display: true, text: '粉丝(万) / 销售额(万元)', font: { size: 9 } } } }
-            }
-        });
-    }
-
-    // 曝光图表: 宁畅曝光1200w, 矩阵曝光3000w, 光合1500w, 话题保安日记40000w (调整单位: 万)
-    const exposureCtx = document.getElementById('exposureChart')?.getContext('2d');
-    if(exposureCtx){
-        new Chart(exposureCtx, {
-            type: 'bar',
-            data: {
-                labels: ['宁畅账号', '科技矩阵', '光合组织', '保安日记话题'],
-                datasets: [{
-                    label: '曝光量 (万)',
-                    data: [1200, 3000, 1500, 40000],
-                    backgroundColor: '#2c7a7b',
-                    borderRadius: 8,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: { tooltip: { callbacks: { label: (ctx) => `${ctx.raw} 万曝光` } } },
-                scales: { y: { title: { display: true, text: '万次曝光' }, beginAtZero: true } }
-            }
-        });
-    }
-
-    // 粉丝增长对比图 (万)
-    const fansCtx = document.getElementById('fansChart')?.getContext('2d');
-    if(fansCtx){
-        new Chart(fansCtx, {
-            type: 'bar',
-            data: {
-                labels: ['宁畅官号', '辉子访老', '老板IP', '剧情号(香草天空)'],
-                datasets: [{
-                    label: '粉丝增长 (万)',
-                    data: [10, 28, 2, 1.2],
-                    backgroundColor: '#4f9da6',
-                    borderRadius: 8,
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { position: 'top' } },
-                scales: { y: { beginAtZero: true, title: { display: true, text: '粉丝 (万)' } } }
-            }
-        });
-    }
-
-    // 额外修饰进度条实际数值展示(确保手动调节)
-    document.querySelectorAll('.progress-fill').forEach(fill => {
-        let widthVal = fill.style.width;
-        if(widthVal === '150%') fill.style.width = '100%'; // 超额150% 视觉只展示100%并外标文本
-        if(fill.classList.contains('highlight') && widthVal === '150%') {
-            fill.style.width = '100%';
-            fill.style.background = '#e67e22';
-            fill.parentElement?.parentElement?.querySelector('span')?.setAttribute('style','font-size:0.7rem;');
+    (function() {
+        // 确保canvas存在且不报错
+        const engageCanvas = document.getElementById('engagementChart');
+        if (engageCanvas) {
+            new Chart(engageCanvas, {
+                type: 'bar',
+                data: {
+                    labels: ['辉子访老(万粉)', '老板IP(万粉)', '小红书(万元)'],
+                    datasets: [{
+                        label: '成果数据',
+                        data: [28, 2, 3],
+                        backgroundColor: ['#2c7a7b', '#3b8c9e', '#e67e22'],
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: { legend: { position: 'top', labels: { font: { size: 10 } } } },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: '万 / 万元', font: { size: 9 } } } }
+                }
+            });
         }
-    });
+
+        const exposureCtx = document.getElementById('exposureChart')?.getContext('2d');
+        if (exposureCtx) {
+            new Chart(exposureCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['宁畅账号', '科技矩阵', '光合组织', '保安日记话题'],
+                    datasets: [{
+                        label: '曝光量 (万)',
+                        data: [1200, 3000, 1500, 40000],
+                        backgroundColor: '#2c7a7b',
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: { tooltip: { callbacks: { label: (ctx) => `${ctx.raw} 万曝光` } } },
+                    scales: { y: { title: { display: true, text: '万次曝光' }, beginAtZero: true } }
+                }
+            });
+        }
+
+        const fansCtx = document.getElementById('fansChart')?.getContext('2d');
+        if (fansCtx) {
+            new Chart(fansCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['宁畅官号', '辉子访老', '老板IP', '剧情号(香草)'],
+                    datasets: [{
+                        label: '粉丝增长 (万)',
+                        data: [10, 28, 2, 1.2],
+                        backgroundColor: '#4f9da6',
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: '粉丝 (万)' } } }
+                }
+            });
+        }
+    })();
 </script>
 </body>
 </html>
